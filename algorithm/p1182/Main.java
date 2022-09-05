@@ -1,11 +1,11 @@
-package algorithm;
+package p1182;
 
 import java.util.Arrays;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class p1182 {
+public class Main {
 
     static int combi(int n, int r) {
         if (n == r || r == 0)
