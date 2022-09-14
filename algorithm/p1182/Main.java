@@ -6,33 +6,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Main {
-//test
-    static int combi(int n, int r) {
-        if (n == r || r == 0)
-            return 1;
-
-        else
-            return combi(n - 1, r - 1) + combi(n - 1, r);
-    }
-
-    static void combination(int[] arr, boolean[] visited, int n, int r) {
-
-        if (r == 0) {
-            for (int i = 0; i < arr.length; i++) {
-                if (visited[i])
-                    System.out.print(arr[i] + " ");
-            }
-            System.out.println(" ");
-            return;
-        }
-        if (n == arr.length)
-            return;
-        visited[n] = true;
-        combination(arr, visited, n + 1, r - 1);
-
-        visited[n] = false;
-        combination(arr, visited, n + 1, r);
-    }
 
     static int combination2(int[] arr, boolean[] visited, int n, int r, int S) {
 
@@ -51,10 +24,10 @@ public class Main {
             return 0;
 
         int partSum = 0;
-
+        // n을 고른경우
         visited[n] = true;
         partSum += combination2(arr, visited, n + 1, r - 1, S);
-
+        // n을 고르지 않은 경우
         visited[n] = false;
         partSum += combination2(arr, visited, n + 1, r, S);
 
@@ -75,34 +48,27 @@ public class Main {
 
             // int N = Integer.parseInt(inputs[0]);
             // int S = Integer.parseInt(inputs[1]);
-            // test
-            /*
-             * int N = input.nextInt();
-             * int S = input.nextInt();
-             * 
-             * int [] nums = new int[N];
-             * boolean[] visited = new boolean[N];
-             * 
-             * 
-             * //inputString=rd.readLine();
-             * //inputs = inputString.split(" ");
-             * 
-             * for(int i=0; i<N ; i++){
-             * nums[i] = input.nextInt();//Integer.parseInt(inputs[i]);
-             * visited[i] = false;
-             * }
-             * 
-             * //System.out.println(combi(3,2));
-             * int result = 0;
-             * for(int i=1; i<=N; i++){
-             * result += combination2(nums,visited,0,i,S);
-             * }
-             * System.out.println(result);
-             */
 
-            int arr1[][] = { { 1, 2 }, { 4, 5 }, { 5, 6 } };
+            int N = input.nextInt();
+            int S = input.nextInt();
 
-            System.out.println(arr1[0][1]);
+            int[] nums = new int[N];
+            boolean[] visited = new boolean[N];
+
+            // inputString=rd.readLine();
+            // inputs = inputString.split(" ");
+
+            for (int i = 0; i < N; i++) {
+                nums[i] = input.nextInt();// Integer.parseInt(inputs[i]);
+                visited[i] = false;
+            }
+
+            // System.out.println(combi(3,2));
+            int result = 0;
+            for (int i = 1; i <= N; i++) {
+                result += combination2(nums, visited, 0, i, S);
+            }
+            System.out.println(result);
 
             // rd.close();
             // input.close();
