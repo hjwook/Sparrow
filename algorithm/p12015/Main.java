@@ -12,6 +12,7 @@ public class Main {
 
     for (int i = 0; i < N; i++) {
       A[i] = sc.nextInt();
+      // asdf
     }
 
     sc.close();
