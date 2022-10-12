@@ -1,15 +1,10 @@
 package p2304;
 
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
 
 import java.util.Stack;
 import java.util.Arrays;
 import java.util.HashMap;
-/*���úз��� â���ٰ��� ���� */
 
 class POS {
     public int L;
@@ -33,13 +28,9 @@ public class Main {
         // BufferedReader rd = new BufferedReader(new FileReader("input.txt"));
         Scanner input = new Scanner(System.in);
 
-        String inputString;// take input String
-        // inputString=rd.readLine();
-
-        // int num = Integer.parseInt(inputString);
         int num = input.nextInt();
         int[] posAry = new int[num];
-        HashMap<Integer, Integer> LMap = new HashMap();
+        HashMap<Integer, Integer> LMap = new HashMap<Integer, Integer>();
 
         int sum = 0;
 
