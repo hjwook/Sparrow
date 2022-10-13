@@ -11,19 +11,23 @@ public class Main {
     int M = sc.nextInt();
 
     int[] arr = new int[N];
-    //맨앞 인덱스부터 하나씩 빼며 누적합%M을 구한다.
-    int[][] pSum = new int[N + 1][N + 1];
-    int count = 0;
+    int[] pSum = new int[N + 1];
+    int[] mod = new int[M];
+    long count = 0;
     for (int i = 0; i < N; i++) {
       arr[i] = (sc.nextInt()) % M;
-      for (int j = 0; j <= i; j++) {
-        pSum[j][i + 1] = (pSum[j][i] + arr[i]) % M;
-        //mod M 이 0일시 M으로 나누어 떨어지는 부분구간합
-        if (pSum[j][i + 1] == 0) {
-          count++;
-        }
-      }
+      pSum[i + 1] = (pSum[i] + arr[i]) % M;
+      //각 나머지별 갯수 카운트
+      mod[pSum[i + 1]]++;
     }
+    //누적합이 바로 나누어 떨어지는 경우 count
+    count += mod[0];
+    //2개 조합이 나누어 떨어지는 경우 count
+    for (int i = 0; i < M; i++) {
+      long n = mod[i];
+      count += n * (n - 1) / 2;
+    }
+
     System.out.println(count);
     sc.close();
   }
