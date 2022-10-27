@@ -11,8 +11,8 @@ class POS {
     public int H;
 
     public POS() {
-        int L = 0;
-        int H = 0;
+        L = 0;
+        H = 0;
     }
 
     public POS(int L, int H) {

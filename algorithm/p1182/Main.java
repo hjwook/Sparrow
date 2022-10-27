@@ -1,9 +1,6 @@
 package p1182;
 
-import java.util.Arrays;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileReader;
 
 public class Main {
 
@@ -39,10 +36,6 @@ public class Main {
             // BufferedReader rd = new BufferedReader(new FileReader("p1182.txt"));
             Scanner input = new Scanner(System.in);
 
-            String inputString;// take input String
-
-            String[] inputs;
-
             // inputString=rd.readLine();
             // inputs = inputString.split(" ");
 
@@ -71,7 +64,7 @@ public class Main {
             System.out.println(result);
 
             // rd.close();
-            // input.close();
+            input.close();
         } catch (Exception e) {
             System.out.println(e);
         }

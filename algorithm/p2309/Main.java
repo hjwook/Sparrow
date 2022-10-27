@@ -9,7 +9,7 @@ public class Main {
             // BufferedReader rd = new BufferedReader(new FileReader("p2309.txt"));
             Scanner input = new Scanner(System.in);
 
-            String inputString;// take input String
+            // String inputString;// take input String
 
             int[] inputs = new int[9];
             boolean[] excepFlag = new boolean[9];
