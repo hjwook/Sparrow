@@ -21,7 +21,9 @@ public class Main {
         else if (i == 1 && j == 1) {
             return 1;
         }
+        // 계산하지 않았던 곳이면
         if (dp[i][j] == -1) {
+            // 위,아래,양,옆 중 자신보다 큰 곳의 경로수 누적합.
             int temp = 0;
             if (map[i - 1][j] > map[i][j]) {
                 temp += cntRoute(i - 1, j);
