@@ -47,4 +47,3 @@ public class Main {
     sc.close();
   }
 }
-//3 5 2 7 9 5 4 8
