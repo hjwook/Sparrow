@@ -1,33 +1,38 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
-	public static int [] stair = new int [301];
-	public static int [] memo = new int [301];
-	
-	public static int cost (int floor){
-		if(floor <0) return 0;
-		else if(floor == 0) return stair[0];
-		else if (floor ==1) return stair[0]+stair[1];
-		
-		if(memo[floor] ==0 ) {
-			memo[floor] = Math.max(cost(floor-2) + stair[floor], cost(floor-3)+stair[floor-1]+stair[floor]);
-		}
-		
-		return memo[floor];
-		
-	}
-	public static void main (String args[]){
-		Scanner sc = new Scanner(System.in);
-		
-		int n = sc.nextInt();
-		
-		for(int i=0; i<n; i++){
-			stair[i] = sc.nextInt();
-		}
+    public static int[] score;
+    public static int[] dp; //dp[N] = N계단 까지 오를때 최대점수
+    
+    public static int maxScore(int N) {
+        if (N < 0) {
+            return 0;
+        }
+        if (N == 0) {
+            dp[N] = score[N];
+            return dp[N];
+        }
+        else if (N == 1) {
+            dp[N] = score[N - 1] + score[N];
+            return dp[N];
+        }
+        if (dp[N] == 0) {
+            dp[N] = Math.max(maxScore(N - 2) + score[N], maxScore(N - 3) + score[N - 1] + score[N]);
+        }
+        
+        return dp[N];
+    }
+    public static void main(String args[]) throws Exception{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        int N = Integer.parseInt(br.readLine());
+        score = new int[N];
+        dp = new int[N];
+        for (int i = 0; i < N; i++) {
+            score[i] = Integer.parseInt(br.readLine());
+        }
+        System.out.println(maxScore(N-1));
 
-		System.out.println(cost(n-1));
-		
-		sc.close();
-		
-	}
+    }
 }
